@@ -1,0 +1,54 @@
+// This is the tabbar navigation
+import React from 'react';
+import {createAppContainer} from 'react-navigation'
+import {createBottomTabNavigator} from 'react-navigation-tabs'
+import {FontAwesome5} from '@expo/vector-icons'
+import {page1Screen,page2Screen,page3Screen,page4Screen} from './screens'
+import AddButton from './components/addButton';
+
+const TabNavigator = createBottomTabNavigator(
+  {
+    page1: {
+      screen:page1Screen,
+      navigationOptions:{
+        tabBarIcon:() => <FontAwesome5 name='calendar-day' size={24} color='#cdccce' />
+      }
+    },
+
+  
+    page2: {
+      screen:page2Screen,
+      navigationOptions:{
+        tabBarIcon:() => <FontAwesome5 name='clock' size={24} color='#cdccce' />
+      }
+    },
+
+    add: {
+      screen:() => null,
+      navigationOptions:{
+        tabBarIcon:<AddButton />
+      }
+    },
+    page3: {
+      screen:page3Screen,
+      navigationOptions:{
+        tabBarIcon:() => <FontAwesome5 name='envelope' size={24} color='#cdccce' />
+      }
+    },
+
+    page4: {
+      screen:page4Screen,
+      navigationOptions:{
+        tabBarIcon:() => <FontAwesome5 name='user' size={24} color='#cdccce' />
+      }
+    }
+  },
+
+  {
+    tabBarOptions: {
+      showLabel:false
+    }
+  }
+)
+
+export default createAppContainer(TabNavigator);
